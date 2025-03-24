@@ -38,13 +38,10 @@
       font-weight: 700;
       margin-bottom: 1rem;
     }
-    .hero h1 span {
-      color: var(--accent);
-    }
     .hero p {
       font-size: 1.25rem;
       color: var(--muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .cta-btn {
       background-color: var(--primary);
@@ -81,7 +78,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
       flex: 1;
-      transition: transform 0.2s ease;
+      text-align: center;
     }
     .value-props div:hover {
       transform: translateY(-4px);
@@ -93,22 +90,43 @@
       }
     }
     .steps {
-      text-align: left;
-      max-width: 600px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
       background: white;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
-    .steps ol {
-      padding-left: 1.5rem;
-      margin-bottom: 1.5rem;
+    .steps-list {
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+    }
+    .step-box {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    @media (min-width: 768px) {
+      .steps-list {
+        flex-direction: row;
+      }
     }
     .testimonial {
       font-style: italic;
       color: var(--muted);
-      margin-top: 2rem;
+      margin-top: 1rem;
+    }
+    .testimonial-profile {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem auto;
+      display: block;
     }
     .screenshot, .visual {
       margin-top: 1.5rem;
@@ -140,7 +158,7 @@
 <body>
   <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);">
     <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-      <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 28px;"></a>
+      <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
         <a href="#pricing" style="text-decoration: none; color: #1a1a1a; font-weight: 500;">Pricing</a>
         <a href="https://calendly.com/share-nick/my-calendar" style="background-color: #1E90FF; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; text-decoration: none;">Schedule a demo</a>
@@ -155,8 +173,8 @@
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
-      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
       <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">Schedule a demo</a>
+      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
       <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
 
@@ -166,17 +184,17 @@
         <div>
           <strong>Get more clients</strong><br>
           Get more 5-star reviews so new clients pick you with confidence.
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties1.json" background="transparent" speed="1" style="width: 100%; max-width: 240px; margin: 1rem auto;" loop autoplay></lottie-player>
+          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties1.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
         </div>
         <div>
           <strong>Outrank Local Rivals</strong><br>
           Outrank every local competitor on Google with more reviews, more trust, and more walk-ins.
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties2.json" background="transparent" speed="1" style="width: 100%; max-width: 240px; margin: 1rem auto;" loop autoplay></lottie-player>
+          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties2.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
         </div>
         <div>
           <strong>Scale Reviews Fast</strong><br>
           Our platform makes it easy to collect and manage Google Reviews from your happy clients.
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties3.json" background="transparent" speed="1" style="width: 100%; max-width: 240px; margin: 1rem auto;" loop autoplay></lottie-player>
+          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties3.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
         </div>
       </div>
     </section>
@@ -184,11 +202,11 @@
     <section class="section">
       <h2>How It Works</h2>
       <div class="steps">
-        <ol>
-          <li>Connect</li>
-          <li>Customize</li>
-          <li>Get review</li>
-        </ol>
+        <div class="steps-list">
+          <div class="step-box">1. Connect</div>
+          <div class="step-box">2. Customize</div>
+          <div class="step-box">3. Get review</div>
+        </div>
         <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/howitworks.webp" alt="How it works image" class="screenshot">
         <p><strong>Starts at $10/mo</strong></p>
       </div>
@@ -196,8 +214,8 @@
 
     <section class="section">
       <h2>What Others Are Saying</h2>
+      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
       <p class="testimonial">"Amazing software"<br><strong>– Mia</strong></p>
-      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Testimonial image" class="visual">
       <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="margin-top: 2rem; display: inline-block;">Schedule a demo</a>
     </section>
   </div>
