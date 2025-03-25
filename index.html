@@ -25,7 +25,7 @@
     .container {
       max-width: 960px;
       margin: 0 auto;
-      padding: 6rem 2rem 2rem;
+      padding: 2rem;
       position: relative;
     }
     .hero {
@@ -44,56 +44,39 @@
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
-    .button-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .cta-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1.5rem;
+    .cta-btn {
       background: linear-gradient(to right, #3b82f6, #1e3a8a);
       color: white;
-      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
       font-weight: 600;
+      cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
       transition: all 0.2s ease-in-out;
     }
-    .cta-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(30, 144, 255, 0.35);
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(30, 64, 175, 0.35);
     }
-    .cta-primary .cta-icon {
-      background: white;
-      border-radius: 9999px;
-      width: 32px;
-      height: 32px;
+    .cta-btn .circle {
+      background-color: white;
+      color: #1e3a8a;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #1E90FF;
-      transition: transform 0.2s ease;
+      font-weight: bold;
+      font-size: 16px;
     }
-    .cta-primary:hover .cta-icon {
-      transform: translateX(4px);
-    }
-    .cta-secondary {
-      padding: 0.75rem 1.5rem;
-      border: 2px solid #1E90FF;
-      border-radius: 9999px;
-      font-weight: 600;
-      color: #1E90FF;
-      text-decoration: none;
-      transition: background-color 0.2s ease;
-    }
-    .cta-secondary:hover {
-      background-color: rgba(30, 144, 255, 0.08);
-    }
+
     .section {
       padding: 4rem 2rem;
       text-align: center;
@@ -103,6 +86,7 @@
       font-weight: 600;
       margin-bottom: 2rem;
     }
+
     .value-props {
       display: flex;
       flex-direction: column;
@@ -125,32 +109,53 @@
         justify-content: space-between;
       }
     }
-    .steps {
+
+    .how-steps {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 2rem;
+      align-items: center;
+    }
+    .how-step {
       background: white;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      max-width: 260px;
+      text-align: center;
+      position: relative;
     }
-    .steps-list {
+    .how-step-icon {
+      width: 64px;
+      height: 64px;
+      background: #eef2ff;
+      border-radius: 12px;
+      margin: 0 auto 1rem;
+      position: relative;
+    }
+    .how-step-number {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: var(--primary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      border-radius: 999px;
       display: flex;
-      gap: 2rem;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
     }
-    .step-box {
-      background: #f1f5f9;
-      padding: 1rem;
-      border-radius: 8px;
-      font-weight: 500;
-    }
+
     @media (min-width: 768px) {
-      .steps-list {
+      .how-steps {
         flex-direction: row;
+        justify-content: center;
       }
     }
+
     .testimonial {
       font-style: italic;
       color: var(--muted);
@@ -186,18 +191,21 @@
       top: 50px;
       right: -120px;
     }
+
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Sora', sans-serif;
     }
   </style>
 </head>
 <body>
-  <header class="header" style="position: fixed; top: 0; width: 100%; z-index: 1000; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);">
+  <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 10;">
     <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
       <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
         <a href="#pricing" style="text-decoration: none; color: #1a1a1a; font-weight: 500;">Pricing</a>
-        <a href="https://calendly.com/share-nick/my-calendar" class="cta-secondary">Schedule a demo</a>
+        <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="background: none; border: 2px solid #1E90FF; color: #1E90FF; box-shadow: none;">
+          Schedule a demo
+        </a>
       </nav>
     </div>
   </header>
@@ -209,17 +217,9 @@
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
-      <div class="button-group">
-        <a href="https://calendly.com/share-nick/my-calendar" class="cta-primary">
-          <span>Schedule a demo</span>
-          <span class="cta-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
-              <polygon points="8.35 15.35 7.65 14.65 14.29 8 7.65 1.35 8.35 .65 15.71 8 8.35 15.35"/>
-              <rect x="1" y="7.5" width="14" height="1"/>
-            </svg>
-          </span>
-        </a>
-      </div>
+      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">
+        Schedule a demo <span class="circle">→</span>
+      </a>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
       <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
@@ -247,24 +247,43 @@
 
     <section class="section">
       <h2>How It Works</h2>
-      <div class="steps">
-        <div class="steps-list">
-          <div class="step-box">1. Connect</div>
-          <div class="step-box">2. Customize</div>
-          <div class="step-box">3. Get review</div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-icon">
+            <div class="how-step-number">1</div>
+            <!-- Replace with your icon -->
+            <img src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <h4>Connect</h4>
+          <p>Connect your CRM</p>
         </div>
-        <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/howitworks.webp" alt="How it works image" class="screenshot">
-        <p><strong>Starts at $10/mo</strong></p>
+        <div class="how-step">
+          <div class="how-step-icon">
+            <div class="how-step-number">2</div>
+            <img src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <h4>Add</h4>
+          <p>Add your message</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-icon">
+            <div class="how-step-number">3</div>
+            <img src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <h4>Send</h4>
+          <p>Invite your clients</p>
+        </div>
       </div>
+      <p style="margin-top: 2rem;"><strong>Starts at $10/mo</strong></p>
     </section>
 
     <section class="section">
       <h2>What Others Are Saying</h2>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
       <p class="testimonial">"Amazing software"<br><strong>– Mia</strong></p>
-      <div class="button-group">
-        <a href="https://calendly.com/share-nick/my-calendar" class="cta-secondary">Schedule a demo</a>
-      </div>
+      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="margin-top: 2rem;">
+        Schedule a demo <span class="circle">→</span>
+      </a>
     </section>
   </div>
 </body>
