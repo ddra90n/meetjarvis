@@ -8,20 +8,21 @@
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
-  --primary: #1A73E8;
-  --accent: #FBBC05;
-  --bg: #F9FAFB;
-  --text: #202124;
-  --muted: #5F6368;
-  --button-gradient: linear-gradient(to right, #1A73E8, #1967D2);
-}
+      /* Two primary colors */
+      --primary1: #1E90FF;   /* Blue */
+      --primary2: #FFD700;   /* Yellow */
+      /* Three secondary colors */
+      --secondary1: #f5f5ec; /* Background */
+      --secondary2: #1a1a1a; /* Main text */
+      --secondary3: #666666; /* Muted text */
+    }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      color: var(--text);
-      background-color: var(--bg);
+      color: var(--secondary2);
+      background-color: var(--secondary1);
     }
     .container {
       max-width: 960px;
@@ -42,12 +43,12 @@
     }
     .hero p {
       font-size: 1.25rem;
-      color: var(--muted);
+      color: var(--secondary3);
       margin-bottom: 1.5rem;
     }
     .cta-btn {
-      background: var(--button-gradient);
-      color: var(--primary);
+      background: linear-gradient(to right, var(--primary1), var(--primary2));
+      color: white;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 999px;
@@ -58,16 +59,16 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(10, 30, 37, 0.2);
+      box-shadow: 0 4px 12px rgba(30,144,255,0.3);
       transition: all 0.2s ease-in-out;
     }
     .cta-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(10, 30, 37, 0.25);
+      box-shadow: 0 6px 16px rgba(30,144,255,0.35);
     }
     .cta-btn .circle {
       background-color: white;
-      color: var(--primary);
+      color: var(--primary1);
       border-radius: 50%;
       width: 24px;
       height: 24px;
@@ -77,6 +78,7 @@
       font-weight: bold;
       font-size: 16px;
     }
+
     .section {
       padding: 4rem 2rem;
       text-align: center;
@@ -86,6 +88,7 @@
       font-weight: 600;
       margin-bottom: 2rem;
     }
+
     .value-props {
       display: flex;
       flex-direction: column;
@@ -108,6 +111,7 @@
         justify-content: space-between;
       }
     }
+
     .how-steps {
       display: flex;
       flex-direction: column;
@@ -135,7 +139,7 @@
       position: absolute;
       top: -10px;
       right: -10px;
-      background-color: var(--primary);
+      background-color: var(--primary1);
       color: white;
       width: 24px;
       height: 24px;
@@ -146,15 +150,17 @@
       justify-content: center;
       font-weight: bold;
     }
+
     @media (min-width: 768px) {
       .how-steps {
         flex-direction: row;
         justify-content: center;
       }
     }
+
     .testimonial {
       font-style: italic;
-      color: var(--muted);
+      color: var(--secondary3);
       margin-top: 1rem;
     }
     .testimonial-profile {
@@ -165,7 +171,7 @@
       margin: 1rem auto;
       display: block;
     }
-    .screenshot {
+    .screenshot, .visual {
       margin-top: 1.5rem;
       max-width: 100%;
       border-radius: 12px;
@@ -175,7 +181,7 @@
       position: absolute;
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle at 30% 30%, #CDDC8D22, transparent 70%);
+      background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
       border-radius: 50%;
       z-index: -1;
     }
@@ -187,6 +193,95 @@
       top: 50px;
       right: -120px;
     }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Sora', sans-serif;
+    }
+
+    /*
+      TOP-RIGHT CTA BUTTON:
+      Border = black initially;
+      on hover, border becomes a gradient (hybrid of primary1 & primary2)
+    */
+    .header nav a.cta-btn {
+      background: none !important;
+      border: 2px solid black !important;
+      color: black !important;
+      box-shadow: none !important;
+      transition: border 0.3s ease;
+    }
+    .header nav a.cta-btn:hover {
+      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
+      border-style: solid;
+      color: black !important;
+    }
+
+    /* 
+      UPCOMING EVENTS SECTION (new simpler design)
+    */
+    .events-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .event-cards-container {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .event-card {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: 340px; /* Adjust as needed for your design */
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--secondary2);
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+    .event-card:hover {
+      transform: translateY(-2px);
+    }
+    .event-type {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--primary1);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .event-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0.5rem 0 1rem;
+      color: var(--secondary2);
+    }
+    .event-details {
+      font-size: 0.9rem;
+      color: var(--secondary3);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .event-arrow {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--secondary2);
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+    }
+    .value-props h3.value-prop-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border: none;
+  padding: 0;
+  background: none;
+  display: inline;
+}
   </style>
 </head>
 <body>
@@ -194,8 +289,9 @@
     <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
       <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="#pricing" style="text-decoration: none; color: var(--text); font-weight: 500;">Pricing</a>
-        <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="background: none; border: 2px solid var(--primary); color: var(--primary); box-shadow: none;">
+        <a href="#pricing" style="text-decoration: none; color: var(--secondary2); font-weight: 500;">Pricing</a>
+        <!-- TOP-RIGHT CTA BUTTON (unchanged) -->
+        <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">
           Schedule a demo
         </a>
       </nav>
@@ -209,29 +305,30 @@
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
+      <!-- Main CTA (unchanged) -->
       <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">
         Schedule a demo <span class="circle">→</span>
       </a>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
-      <p style="margin-top: 1rem; color: var(--muted)">Hurry</p>
+      <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
 
     <section class="section">
-      <h2>Why Dentists Love This</h2>
+      <h2>Become the highest reviewed local dentist on Google</h2>
       <div class="value-props">
         <div>
-          <strong>Get more clients</strong><br>
-          Get more 5-star reviews so new clients pick you with confidence.
+          <h3 class="value-prop-title">Not #1 on Google?</h3>
+          <p>Patients choose dentists with the most reviews. Clinics with 300+ 5-star ratings win more new clients.</p>
           <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties1.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
-        </div>
+        </div>        
         <div>
-          <strong>Outrank Local Rivals</strong><br>
-          Outrank every local competitor on Google with more reviews, more trust, and more walk-ins.
+          <h3 class="value-prop-title">Too Awkward to Ask?</h3>
+          <p>Asking is awkward. We handle it automatically — at the exact moment patients are most likely to say yes.</p>
           <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties2.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
         </div>
         <div>
-          <strong>Scale Reviews Fast</strong><br>
-          Our platform makes it easy to collect and manage Google Reviews from your happy clients.
+          <h3 class="value-prop-title">Staff Need Recognition?</h3>
+          <p>Staff love seeing their names in 5-star reviews. It makes them proud to be part of a top-rated clinic.</p>
           <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties3.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
         </div>
       </div>
@@ -272,10 +369,42 @@
       <h2>What Others Are Saying</h2>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
       <p class="testimonial">"Amazing software"<br><strong>– Mia</strong></p>
-      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="margin-top: 2rem;">
+      <!-- (Removed the bottom CTA from here so we can move it below the events) -->
+    </section>
+
+    <!-- NEW: UPCOMING EVENTS SECTION -->
+    <section class="section events-section">
+      <h2>Upcoming events</h2>
+      <div class="event-cards-container">
+        <!-- Event 1 -->
+        <a href="calendly.com" target="_blank" class="event-card">
+          <span class="event-type">webinar</span>
+          <div class="event-title">How To Win Customers</div>
+          <div class="event-details">
+            March 24, 2025<br>Zoom
+          </div>
+          <div class="event-arrow">→</div>
+        </a>
+
+        <!-- Event 2 -->
+        <a href="calendly.com" target="_blank" class="event-card">
+          <span class="event-type">webinar</span>
+          <div class="event-title">Beat Your Competitor</div>
+          <div class="event-details">
+            April 2, 2025<br>Zoom
+          </div>
+          <div class="event-arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA MOVED HERE (unchanged) -->
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">
         Schedule a demo <span class="circle">→</span>
       </a>
-    </section>
+    </div>
+
   </div>
 </body>
 </html>
