@@ -44,6 +44,35 @@
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
+    .fancy-cta {
+      background: linear-gradient(to right, #3b82f6, #0f172a);
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: background 0.3s ease;
+    }
+    .fancy-cta .circle {
+      background: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+    .fancy-cta:hover .circle {
+      transform: translateX(4px);
+    }
+    .fancy-cta svg {
+      stroke: #1E90FF;
+    }
     .cta-btn {
       background: linear-gradient(to right, #1E90FF, #1c7ed6);
       color: white;
@@ -182,7 +211,14 @@
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
-      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">Schedule a demo <span>→</span></a>
+      <a href="https://calendly.com/share-nick/my-calendar" class="fancy-cta">
+        <span>Schedule a demo</span>
+        <div class="circle">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M5 3L11 8L5 13" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
       <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
