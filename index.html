@@ -14,6 +14,7 @@
       --text: #1a1a1a;
       --muted: #666;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -22,57 +23,33 @@
       color: var(--text);
       background-color: var(--bg);
     }
+
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 2rem;
       position: relative;
     }
+
     .hero {
       text-align: center;
       padding: 5rem 2rem 4rem;
       position: relative;
     }
+
     .hero h1 {
       font-size: 61px;
       font-weight: 500;
       margin-bottom: 0.75rem;
       line-height: 1.15;
     }
+
     .hero p {
       font-size: 1.25rem;
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
-    .fancy-cta {
-      background: linear-gradient(to right, #3b82f6, #0f172a);
-      padding: 0.75rem 1.25rem;
-      border-radius: 9999px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: white;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      transition: background 0.3s ease;
-    }
-    .fancy-cta .circle {
-      background: white;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.2s ease;
-    }
-    .fancy-cta:hover .circle {
-      transform: translateX(4px);
-    }
-    .fancy-cta svg {
-      stroke: #1E90FF;
-    }
+
     .cta-btn {
       background: linear-gradient(to right, #1E90FF, #1c7ed6);
       color: white;
@@ -89,27 +66,53 @@
       box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
       transition: all 0.2s ease-in-out;
     }
+
     .cta-btn span {
       display: inline-block;
       transition: transform 0.2s ease-in-out;
     }
+
     .cta-btn:hover span {
       transform: translateX(4px);
     }
+
+    .fancy-cta-outline {
+      background: transparent;
+      color: #1E90FF;
+      padding: 0.5rem 1.25rem;
+      border: 2px solid #1E90FF;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .fancy-cta-outline:hover {
+      background-color: rgba(30, 144, 255, 0.1);
+    }
+
     .section {
       padding: 4rem 2rem;
       text-align: center;
     }
+
     .section h2 {
       font-size: 2rem;
       font-weight: 600;
       margin-bottom: 2rem;
     }
+
     .value-props {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
+
     .value-props div {
       background: white;
       padding: 1.5rem;
@@ -118,15 +121,18 @@
       flex: 1;
       text-align: center;
     }
+
     .value-props div:hover {
       transform: translateY(-4px);
     }
+
     @media (min-width: 768px) {
       .value-props {
         flex-direction: row;
         justify-content: space-between;
       }
     }
+
     .steps {
       display: flex;
       flex-direction: column;
@@ -137,27 +143,32 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
+
     .steps-list {
       display: flex;
       gap: 2rem;
       flex-direction: column;
     }
+
     .step-box {
       background: #f1f5f9;
       padding: 1rem;
       border-radius: 8px;
       font-weight: 500;
     }
+
     @media (min-width: 768px) {
       .steps-list {
         flex-direction: row;
       }
     }
+
     .testimonial {
       font-style: italic;
       color: var(--muted);
       margin-top: 1rem;
     }
+
     .testimonial-profile {
       width: 96px;
       height: 96px;
@@ -166,12 +177,14 @@
       margin: 1rem auto;
       display: block;
     }
+
     .screenshot, .visual {
       margin-top: 1.5rem;
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
+
     .blob {
       position: absolute;
       width: 300px;
@@ -180,14 +193,17 @@
       border-radius: 50%;
       z-index: -1;
     }
+
     .blob-1 {
       top: -80px;
       left: -100px;
     }
+
     .blob-2 {
       top: 50px;
       right: -120px;
     }
+
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Sora', sans-serif;
     }
@@ -199,7 +215,7 @@
       <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
         <a href="#pricing" style="text-decoration: none; color: #1a1a1a; font-weight: 500;">Pricing</a>
-        <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">Schedule a demo <span>→</span></a>
+        <a href="https://calendly.com/share-nick/my-calendar" class="fancy-cta-outline">Schedule a demo</a>
       </nav>
     </div>
   </header>
@@ -211,14 +227,7 @@
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
-      <a href="https://calendly.com/share-nick/my-calendar" class="fancy-cta">
-        <span>Schedule a demo</span>
-        <div class="circle">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M5 3L11 8L5 13" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
+      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn">Schedule a demo</a>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
       <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
@@ -261,7 +270,7 @@
       <h2>What Others Are Saying</h2>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
       <p class="testimonial">"Amazing software"<br><strong>– Mia</strong></p>
-      <a href="https://calendly.com/share-nick/my-calendar" class="cta-btn" style="margin-top: 2rem; display: inline-block;">Schedule a demo <span>→</span></a>
+      <a href="https://calendly.com/share-nick/my-calendar" class="fancy-cta-outline" style="margin-top: 2rem; display: inline-block;">Schedule a demo</a>
     </section>
   </div>
 </body>
