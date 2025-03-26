@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jarvis: Google Reviews for Your Dental Office</title>
+  <title>Jarvis: Schedule a Demo</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
-      /* Two primary colors */
-      --primary1: #1E90FF;   /* Blue */
-      --primary2: #FFD700;   /* Yellow */
-      /* Three secondary colors */
-      --secondary1: #f5f5ec; /* Background */
-      --secondary2: #1a1a1a; /* Main text */
-      --secondary3: #666666; /* Muted text */
+      --primary1: #1E90FF;
+      --primary2: #FFD700;
+      --secondary1: #f5f5ec;
+      --secondary2: #1a1a1a;
+      --secondary3: #666666;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -25,50 +23,35 @@
       color: var(--secondary2);
       background-color: var(--secondary1);
     }
-    /* Header styling (same as in index_template) */
-    .header nav a.cta-btn {
-      background: none !important;
-      border: 2px solid black !important;
-      color: black !important;
-      box-shadow: none !important;
-      transition: border 0.3s ease;
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
     }
-    .header nav a.cta-btn:hover {
-      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
-      border-style: solid;
-      color: black !important;
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
-  <!-- Header from index_template for consistency -->
-  <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 10;">
-    <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-      <a href="/"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" alt="Logo" style="height: 34px;"></a>
-      <nav style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="pricing.html">Pricing</a>
-        <a href="calendly.html" class="cta-btn">Schedule a demo</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main calendly content: side-by-side description and calendar -->
-  <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 1rem; padding: 4rem 2rem; flex-wrap: wrap;">
-    <!-- Left: Description -->
-    <div style="flex: 1; max-width: 480px;">
-      <h1 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; margin-bottom: 1rem;">Book a demo</h1>
-      <p style="font-size: 1rem; color: #555;">
-        Pick a time that works for you, and we’ll walk you through how Jarvis works for your practice.
-      </p>
-    </div>
+  <div class="container">
+    <!-- Description -->
+    <h1>Book a demo</h1>
+    <p>Pick a time that works for you, and we’ll walk you through how Jarvis works for your practice.</p>
   
-    <!-- Right: Calendly widget -->
-    <div style="flex: 1; min-width: 320px;">
-      <div class="calendly-inline-widget" 
-           data-url="https://calendly.com/nick-meetjarvis/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
-           style="min-width:320px;height:700px;border:none;border-radius:12px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    </div>
+    <!-- Calendly widget -->
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/nick-meetjarvis/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+         style="min-width:320px;height:700px;border:none;border-radius:12px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
 </body>
 </html>
