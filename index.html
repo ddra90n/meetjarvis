@@ -173,11 +173,12 @@
       display: block;
     }
     .screenshot, .visual {
-      margin-top: 1.5rem;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
+  margin-top: 1.5rem;
+  max-width: 100%;
+  border-radius: 0;         /* Remove rounding */
+  box-shadow: none;         /* Remove shadow */
+  background: none;         /* Just in case */
+}
     .blob {
       position: absolute;
       width: 300px;
@@ -305,7 +306,7 @@ nav a:hover {
     <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
       <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="#pricing">Pricing</a>
+        <a href="pricing.html">Pricing</a>
         <a href="calendly.html" class="cta-btn">Schedule a demo</a>
       </nav>      
     </div>
@@ -323,7 +324,6 @@ nav a:hover {
         Schedule a demo <span class="circle">→</span>
       </a>      
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
-      <p style="margin-top: 1rem; color: #888">Hurry</p>
     </section>
 
     <section class="section">
@@ -375,7 +375,6 @@ nav a:hover {
           <p>Upload contacts and send via email or text — done!</p>
         </div>
       </div>
-      <p style="margin-top: 2rem;"><strong>Starts at $250/mo</strong></p>
     </section>
 
     <section class="section">
