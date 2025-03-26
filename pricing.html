@@ -3,49 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jarvis: Pricing</title>
+  <title>Pricing | Jarvis</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
-      /* Two primary colors */
-      --primary1: #1E90FF;   /* Blue */
-      --primary2: #FFD700;   /* Yellow */
-      /* Three secondary colors */
-      --secondary1: #f5f5ec; /* Background */
-      --secondary2: #1a1a1a; /* Main text */
-      --secondary3: #666666; /* Muted text */
+      --primary1: #1E90FF;
+      --primary2: #FFD700;
+      --secondary1: #f5f5ec;
+      --secondary2: #1a1a1a;
+      --secondary3: #666666;
     }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      color: var(--secondary2);
       background-color: var(--secondary1);
+      color: var(--secondary2);
+      line-height: 1.6;
     }
     .container {
-      max-width: 960px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 2rem;
-      position: relative;
     }
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      position: relative;
+    /* Optional simple header */
+    header {
+      background: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .hero h1 {
-      font-size: 61px;
+    header nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--secondary2);
       font-weight: 500;
-      margin-bottom: 0.75rem;
-      line-height: 1.15;
     }
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--secondary3);
-      margin-bottom: 1.5rem;
+    header nav a.cta-btn {
+      background: none;
+      border: 2px solid var(--secondary2);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: border 0.3s ease;
+    }
+    header nav a.cta-btn:hover {
+      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
+      border-style: solid;
+    }
+    h1, h2, h3 {
+      font-family: 'Sora', sans-serif;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    /* Pricing Section */
+    .pricing-section {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .pricing-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .pricing-col {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      flex: 1;
+      max-width: 320px;
+    }
+    .pricing-col h3 {
+      margin: 0.5rem 0;
+    }
+    .pricing-price {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+    .pricing-tag {
+      background: var(--primary1);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      display: inline-block;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+    }
+    .pricing-disc {
+      font-weight: bold;
+      color: var(--primary2);
+      margin-bottom: 1rem;
+    }
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      text-align: left;
+    }
+    .pricing-list li {
+      margin-bottom: 0.5rem;
     }
     .cta-btn {
       background: linear-gradient(to right, var(--primary1), var(--primary2));
@@ -53,245 +115,158 @@
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 999px;
+      text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(30,144,255,0.3);
-      transition: all 0.2s ease-in-out;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(30,144,255,0.35);
-    }
-    .cta-btn .circle {
-      background-color: white;
-      color: var(--primary1);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .value-props {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .value-props div {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      flex: 1;
-      text-align: center;
-    }
-    .value-props div:hover {
-      transform: translateY(-4px);
-    }
-    @media (min-width: 768px) {
-      .value-props {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-
-    .how-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-    .how-step {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      max-width: 260px;
-      text-align: center;
-      position: relative;
-    }
-    .how-step-icon {
-      width: 64px;
-      height: 64px;
-      background: #eef2ff;
-      border-radius: 12px;
-      margin: 0 auto 1rem;
-      position: relative;
-    }
-    .how-step-number {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: var(--primary1);
-      color: white;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    @media (min-width: 768px) {
-      .how-steps {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    .testimonial {
-      font-style: italic;
-      color: var(--secondary3);
+      display: inline-block;
       margin-top: 1rem;
     }
-    .testimonial-profile {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1rem auto;
-      display: block;
-    }
-    .screenshot, .visual {
-      margin-top: 1.5rem;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .blob-1 {
-      top: -80px;
-      left: -100px;
-    }
-    .blob-2 {
-      top: 50px;
-      right: -120px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-    }
-
-    /*
-      TOP-RIGHT CTA BUTTON:
-      Border = black initially;
-      on hover, border becomes a gradient (hybrid of primary1 & primary2)
-    */
-    .header nav a.cta-btn {
-      background: none !important;
-      border: 2px solid black !important;
-      color: black !important;
-      box-shadow: none !important;
-      transition: border 0.3s ease;
-    }
-    .header nav a.cta-btn:hover {
-      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
-      border-style: solid;
-      color: black !important;
-    }
-
-    /* 
-      UPCOMING EVENTS SECTION (new simpler design)
-    */
-    .events-section {
+    /* FAQ Section */
+    .faq-section {
       padding: 4rem 2rem;
-      text-align: center;
     }
-    .event-cards-container {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .event-card {
-      position: relative;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 340px; /* Adjust as needed for your design */
-      padding: 2rem;
-      text-decoration: none;
-      color: var(--secondary2);
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
-    }
-    .event-card:hover {
-      transform: translateY(-2px);
-    }
-    .event-type {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--primary1);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .event-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0.5rem 0 1rem;
-      color: var(--secondary2);
-    }
-    .event-details {
-      font-size: 0.9rem;
-      color: var(--secondary3);
+    .faq-item {
       margin-bottom: 1.5rem;
-      line-height: 1.4;
     }
-    .event-arrow {
-      font-size: 1.25rem;
+    .faq-question {
       font-weight: bold;
-      color: var(--secondary2);
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
+      cursor: pointer;
     }
-    .value-props h3.value-prop-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  border: none;
-  padding: 0;
-  background: none;
-  display: inline-block;
-  height: 3rem;
-}
-
+    .faq-answer {
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+      display: none;
+    }
+    /* Demo Section */
+    .demo-section {
+      background: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 4rem 0;
+    }
   </style>
 </head>
 <body>
-  <div class="container" style="text-align: center; padding: 4rem 2rem;">
-    <h1 style="font-size: 2.5rem; font-family: 'Sora', sans-serif;">Pricing</h1>
-    <p style="margin-top: 1rem; font-size: 1.25rem;">We keep it simple. Starts at <strong>$10/month</strong>. Cancel anytime.</p>
-    <p style="margin-top: 2rem;">Need help? <a href="https://calendly.com/share-nick/my-calendar" style="color: #1E90FF;">Schedule a call</a></p>
-  </div>
+  <!-- Optional Header -->
+  <header class="container">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" alt="Logo" style="height:34px;">
+    </div>
+    <nav>
+      <a href="#">Product</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#" class="cta-btn">Schedule a Demo</a>
+    </nav>
+  </header>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section container">
+    <div class="section-title">
+      <h1>PRICING DETAILS</h1>
+      <p>Flexible plans for every business. Buy risk free with our 30 day money back guarantee! Yearly and two year subscriptions are paid in lump sums.</p>
+    </div>
+    <div class="pricing-columns">
+      <!-- Two Year Plan -->
+      <div class="pricing-col">
+        <div class="pricing-tag">BEST VALUE</div>
+        <h3>Two Year Plan</h3>
+        <div class="pricing-price">$149<span style="font-size: 1rem;">/mo</span></div>
+        <div class="pricing-disc">SAVE 40%</div>
+        <ul class="pricing-list">
+          <li>Unlimited Review Generation</li>
+          <li>Reviews Streamed To Website</li>
+          <li>Trust Badges on Website</li>
+          <li>Online Scheduling Buttons</li>
+          <li>"Text us" Buttons</li>
+          <li>Pay-By-Text Services</li>
+          <li>Easy Feedback</li>
+          <li>Dashboard Insights</li>
+          <li>Unlimited Support</li>
+        </ul>
+        <a href="#" class="cta-btn">Get Started</a>
+      </div>
+      <!-- One Year Plan -->
+      <div class="pricing-col" style="border: 2px solid var(--primary1);">
+        <div class="pricing-tag">MOST POPULAR</div>
+        <h3>One Year Plan</h3>
+        <div class="pricing-price">$199<span style="font-size: 1rem;">/mo</span></div>
+        <div class="pricing-disc">SAVE 20%</div>
+        <ul class="pricing-list">
+          <li>Unlimited Review Generation</li>
+          <li>Reviews Streamed To Website</li>
+          <li>Trust Badges on Website</li>
+          <li>Online Scheduling Buttons</li>
+          <li>"Text us" Buttons</li>
+          <li>Pay-By-Text Services</li>
+          <li>Easy Feedback</li>
+          <li>Dashboard Insights</li>
+          <li>Unlimited Support</li>
+        </ul>
+        <a href="#" class="cta-btn">Get Started</a>
+      </div>
+      <!-- Monthly Plan -->
+      <div class="pricing-col">
+        <h3>Monthly Plan</h3>
+        <div class="pricing-price">$249<span style="font-size: 1rem;">/mo</span></div>
+        <ul class="pricing-list">
+          <li>Unlimited Review Generation</li>
+          <li>Reviews Streamed To Website</li>
+          <li>Trust Badges on Website</li>
+          <li>Online Scheduling Buttons</li>
+          <li>"Text us" Buttons</li>
+          <li>Pay-By-Text Services</li>
+          <li>Easy Feedback</li>
+          <li>Dashboard Insights</li>
+          <li>Unlimited Support</li>
+        </ul>
+        <a href="#" class="cta-btn">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section container">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do you offer discounts?</div>
+      <div class="faq-answer">
+        <p>Yes! Get 20% off when you pay upfront for a One Year Plan. Or get 40% off when you pay upfront for a Two Year Plan.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Can we get reviews anywhere besides Google?</div>
+      <div class="faq-answer">
+        <p>We can help you build reviews elsewhere, however we recommend you focus your review efforts on Google.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do you require a setup fee?</div>
+      <div class="faq-answer">
+        <p>We do have a setup fee of $299.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section class="demo-section container">
+    <h2>Schedule A Demo Today!</h2>
+    <p>Schedule a free demo with a Local Business Growth Specialist™ today!</p>
+    <a href="#" class="cta-btn">Schedule a Demo</a>
+  </section>
+
+  <script>
+    // Simple FAQ toggle functionality
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>
