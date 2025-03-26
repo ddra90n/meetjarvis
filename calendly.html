@@ -25,185 +25,7 @@
       color: var(--secondary2);
       background-color: var(--secondary1);
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-      position: relative;
-    }
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-    }
-    .hero h1 {
-      font-size: 61px;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      line-height: 1.15;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--secondary3);
-      margin-bottom: 1.5rem;
-    }
-    .cta-btn {
-      background: linear-gradient(to right, var(--primary1), var(--primary2));
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(30,144,255,0.3);
-      transition: all 0.2s ease-in-out;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(30,144,255,0.35);
-    }
-    .cta-btn .circle {
-      background-color: white;
-      color: var(--primary1);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .value-props {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .value-props div {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      flex: 1;
-      text-align: center;
-    }
-    .value-props div:hover {
-      transform: translateY(-4px);
-    }
-    @media (min-width: 768px) {
-      .value-props {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-
-    .how-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-    .how-step {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      max-width: 260px;
-      text-align: center;
-      position: relative;
-    }
-    .how-step-icon {
-      width: 64px;
-      height: 64px;
-      background: #eef2ff;
-      border-radius: 12px;
-      margin: 0 auto 1rem;
-      position: relative;
-    }
-    .how-step-number {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: var(--primary1);
-      color: white;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    @media (min-width: 768px) {
-      .how-steps {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    .testimonial {
-      font-style: italic;
-      color: var(--secondary3);
-      margin-top: 1rem;
-    }
-    .testimonial-profile {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1rem auto;
-      display: block;
-    }
-    .screenshot, .visual {
-      margin-top: 1.5rem;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .blob-1 {
-      top: -80px;
-      left: -100px;
-    }
-    .blob-2 {
-      top: 50px;
-      right: -120px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-    }
-
-    /*
-      TOP-RIGHT CTA BUTTON:
-      Border = black initially;
-      on hover, border becomes a gradient (hybrid of primary1 & primary2)
-    */
+    /* Header styling (same as in index_template) */
     .header nav a.cta-btn {
       background: none !important;
       border: 2px solid black !important;
@@ -216,90 +38,37 @@
       border-style: solid;
       color: black !important;
     }
-
-    /* 
-      UPCOMING EVENTS SECTION (new simpler design)
-    */
-    .events-section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .event-cards-container {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .event-card {
-      position: relative;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 340px; /* Adjust as needed for your design */
-      padding: 2rem;
-      text-decoration: none;
-      color: var(--secondary2);
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
-    }
-    .event-card:hover {
-      transform: translateY(-2px);
-    }
-    .event-type {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--primary1);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .event-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0.5rem 0 1rem;
-      color: var(--secondary2);
-    }
-    .event-details {
-      font-size: 0.9rem;
-      color: var(--secondary3);
-      margin-bottom: 1.5rem;
-      line-height: 1.4;
-    }
-    .event-arrow {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: var(--secondary2);
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-    }
-    .value-props h3.value-prop-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  border: none;
-  padding: 0;
-  background: none;
-  display: inline-block;
-  height: 3rem;
-}
-
   </style>
 </head>
 <body>
-  <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 2rem; padding: 4rem 2rem; flex-wrap: wrap;">
+  <!-- Header from index_template for consistency -->
+  <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 10;">
+    <div style="max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+      <a href="/"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" alt="Logo" style="height: 34px;"></a>
+      <nav style="display: flex; gap: 1.5rem; align-items: center;">
+        <a href="pricing.html">Pricing</a>
+        <a href="calendly.html" class="cta-btn">Schedule a demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main calendly content: side-by-side description and calendar -->
+  <div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 1rem; padding: 4rem 2rem; flex-wrap: wrap;">
     <!-- Left: Description -->
     <div style="flex: 1; max-width: 480px;">
       <h1 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; margin-bottom: 1rem;">Book a demo</h1>
-      <p style="font-size: 1rem; color: #555;">Pick a time that works for you, and we’ll walk you through how Jarvis works for your practice.</p>
+      <p style="font-size: 1rem; color: #555;">
+        Pick a time that works for you, and we’ll walk you through how Jarvis works for your practice.
+      </p>
     </div>
   
-    <!-- Right: Calendly iframe -->
+    <!-- Right: Calendly widget -->
     <div style="flex: 1; min-width: 320px;">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/nick-meetjarvis/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <div class="calendly-inline-widget" 
+           data-url="https://calendly.com/nick-meetjarvis/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+           style="min-width:320px;height:700px;border:none;border-radius:12px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
-  </div>  
+  </div>
 </body>
 </html>
