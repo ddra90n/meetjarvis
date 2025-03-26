@@ -27,32 +27,7 @@
       margin: 0 auto;
       padding: 2rem;
     }
-    /* Optional simple header */
-    header {
-      background: white;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: var(--secondary2);
-      font-weight: 500;
-    }
-    header nav a.cta-btn {
-      background: none;
-      border: 2px solid var(--secondary2);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      transition: border 0.3s ease;
-    }
-    header nav a.cta-btn:hover {
-      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
-      border-style: solid;
-    }
+
     h1, h2, h3 {
       font-family: 'Sora', sans-serif;
     }
@@ -60,6 +35,7 @@
       text-align: center;
       margin-bottom: 2rem;
     }
+
     /* Pricing Section */
     .pricing-section {
       text-align: center;
@@ -79,27 +55,47 @@
       flex: 1;
       max-width: 320px;
     }
-    .pricing-col h3 {
-      margin: 0.5rem 0;
+    /* Horizontal alignment for plan name, price, discount, button */
+    .plan-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; /* allows wrapping on smaller screens */
+      margin-bottom: 1rem;
     }
-    .pricing-price {
-      font-size: 2rem;
-      margin: 1rem 0;
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .plan-type {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
     }
     .pricing-tag {
       background: var(--primary1);
       color: white;
       padding: 0.25rem 0.5rem;
-      display: inline-block;
       border-radius: 4px;
-      margin-bottom: 1rem;
       font-size: 0.875rem;
+      white-space: nowrap;
     }
     .pricing-disc {
       font-weight: bold;
       color: var(--primary2);
-      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
+    .pricing-price {
+      font-size: 1.5rem;
+      white-space: nowrap;
+    }
+    .plan-cta {
+      white-space: nowrap;
+    }
+
     .pricing-list {
       list-style: none;
       padding: 0;
@@ -112,15 +108,15 @@
     .cta-btn {
       background: linear-gradient(to right, var(--primary1), var(--primary2));
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1rem;
       border: none;
       border-radius: 999px;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
       display: inline-block;
-      margin-top: 1rem;
     }
+
     /* FAQ Section */
     .faq-section {
       padding: 4rem 2rem;
@@ -137,6 +133,7 @@
       padding-left: 1rem;
       display: none;
     }
+
     /* Demo Section */
     .demo-section {
       background: white;
@@ -148,21 +145,8 @@
   </style>
 </head>
 <body>
-  <!-- Optional Header -->
-  <header class="container">
-    <div class="logo">
-      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" alt="Logo" style="height:34px;">
-    </div>
-    <nav>
-      <a href="#">Product</a>
-      <a href="#">Pricing</a>
-      <a href="#">About</a>
-      <a href="#">Blog</a>
-      <a href="#" class="cta-btn">Schedule a Demo</a>
-    </nav>
-  </header>
 
-  <!-- Pricing Section -->
+  <!-- Pricing Section (no header) -->
   <section class="pricing-section container">
     <div class="section-title">
       <h1>PRICING DETAILS</h1>
@@ -171,10 +155,19 @@
     <div class="pricing-columns">
       <!-- Two Year Plan -->
       <div class="pricing-col">
-        <div class="pricing-tag">BEST VALUE</div>
-        <h3>Two Year Plan</h3>
-        <div class="pricing-price">$149<span style="font-size: 1rem;">/mo</span></div>
-        <div class="pricing-disc">SAVE 40%</div>
+        <div class="plan-header">
+          <div class="left-group">
+            <div class="pricing-tag">BEST VALUE</div>
+            <div class="plan-type">
+              <h3>Two Year Plan</h3>
+              <span class="pricing-disc">SAVE 40%</span>
+            </div>
+          </div>
+          <div class="pricing-price">$149<span style="font-size: 1rem;">/mo</span></div>
+          <div class="plan-cta">
+            <a href="calendly.html" class="cta-btn">Get Started</a>
+          </div>
+        </div>
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -186,14 +179,22 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
-        <a href="#" class="cta-btn">Get Started</a>
       </div>
       <!-- One Year Plan -->
       <div class="pricing-col" style="border: 2px solid var(--primary1);">
-        <div class="pricing-tag">MOST POPULAR</div>
-        <h3>One Year Plan</h3>
-        <div class="pricing-price">$199<span style="font-size: 1rem;">/mo</span></div>
-        <div class="pricing-disc">SAVE 20%</div>
+        <div class="plan-header">
+          <div class="left-group">
+            <div class="pricing-tag">MOST POPULAR</div>
+            <div class="plan-type">
+              <h3>One Year Plan</h3>
+              <span class="pricing-disc">SAVE 20%</span>
+            </div>
+          </div>
+          <div class="pricing-price">$199<span style="font-size: 1rem;">/mo</span></div>
+          <div class="plan-cta">
+            <a href="calendly.html" class="cta-btn">Get Started</a>
+          </div>
+        </div>
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -205,12 +206,21 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
-        <a href="#" class="cta-btn">Get Started</a>
       </div>
       <!-- Monthly Plan -->
       <div class="pricing-col">
-        <h3>Monthly Plan</h3>
-        <div class="pricing-price">$249<span style="font-size: 1rem;">/mo</span></div>
+        <div class="plan-header">
+          <div class="left-group">
+            <!-- No tag for monthly plan -->
+            <div class="plan-type">
+              <h3>Monthly Plan</h3>
+            </div>
+          </div>
+          <div class="pricing-price">$249<span style="font-size: 1rem;">/mo</span></div>
+          <div class="plan-cta">
+            <a href="calendly.html" class="cta-btn">Get Started</a>
+          </div>
+        </div>
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -222,7 +232,6 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
-        <a href="#" class="cta-btn">Get Started</a>
       </div>
     </div>
   </section>
@@ -256,7 +265,8 @@
   <section class="demo-section container">
     <h2>Schedule A Demo Today!</h2>
     <p>Schedule a free demo with a Local Business Growth Specialist™ today!</p>
-    <a href="#" class="cta-btn">Schedule a Demo</a>
+    <!-- Link to calendly.html -->
+    <a href="calendly.html" class="cta-btn">Schedule a Demo</a>
   </section>
 
   <script>
@@ -264,7 +274,7 @@
     document.querySelectorAll('.faq-question').forEach(item => {
       item.addEventListener('click', () => {
         const answer = item.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
       });
     });
   </script>
