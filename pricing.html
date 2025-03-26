@@ -141,8 +141,11 @@
       margin: 4rem 0;
       text-align: center; /* Center entire section */
     }
+    /* Force the button to be block-level with auto margins for perfect centering */
     .demo-section .cta-btn {
-      margin-top: 1rem;
+      display: block;
+      width: fit-content;
+      margin: 1rem auto 0;
     }
   </style>
 </head>
@@ -256,7 +259,7 @@
     <div class="faq-item">
       <div class="faq-question">Do you require a setup fee?</div>
       <div class="faq-answer">
-        <p>No we don't.</p>
+        <p>We do have a setup fee of $299.</p>
       </div>
     </div>
   </section>
