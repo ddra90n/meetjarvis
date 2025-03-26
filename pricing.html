@@ -27,9 +27,9 @@
       margin: 0 auto;
       padding: 2rem;
     }
-
     h1, h2, h3 {
       font-family: 'Sora', sans-serif;
+      margin: 0.5rem 0;
     }
     .section-title {
       text-align: center;
@@ -38,83 +38,81 @@
 
     /* Pricing Section */
     .pricing-section {
-      text-align: center;
       padding: 4rem 2rem;
     }
     .pricing-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+      /* 3-column grid so rows line up across columns */
+      display: grid;
+      grid-template-columns: repeat(3, minmax(250px, 1fr));
+      grid-gap: 2rem;
+      align-items: start; /* top-align columns */
     }
     .pricing-col {
+      /* 6-row grid to match each row across columns */
+      display: grid;
+      grid-template-rows: auto auto auto auto 1fr auto;
       background: white;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 2rem;
-      flex: 1;
-      max-width: 320px;
     }
-    /* Horizontal alignment for plan name, price, discount, button */
-    .plan-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; /* allows wrapping on smaller screens */
-      margin-bottom: 1rem;
+    .middle-plan {
+      border: 2px solid var(--primary1);
     }
-    .left-group {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .plan-type {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-    }
-    .pricing-tag {
+
+    /* Row 1: top label (BEST VALUE, MOST POPULAR, etc.) */
+    .plan-label {
+      text-align: center;
+      font-size: 0.875rem;
       background: var(--primary1);
       color: white;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
-      font-size: 0.875rem;
       white-space: nowrap;
     }
-    .pricing-disc {
+    /* Row 2: plan name */
+    h3 {
+      text-align: center;
+      margin: 0.75rem 0;
+    }
+    /* Row 3: price */
+    .plan-price {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      white-space: nowrap;
+    }
+    /* Row 4: discount text */
+    .plan-discount {
+      text-align: center;
       font-weight: bold;
       color: var(--primary2);
       font-size: 0.9rem;
+      margin-bottom: 0.5rem;
       white-space: nowrap;
     }
-    .pricing-price {
-      font-size: 1.5rem;
-      white-space: nowrap;
-    }
-    .plan-cta {
-      white-space: nowrap;
-    }
-
+    /* Row 5: bullet list */
     .pricing-list {
       list-style: none;
       padding: 0;
-      margin: 1rem 0;
-      text-align: left;
+      margin: 1rem 0 1.5rem;
     }
     .pricing-list li {
       margin-bottom: 0.5rem;
     }
+    /* Row 6: button */
     .cta-btn {
+      display: inline-block;
+      margin: 0 auto;
       background: linear-gradient(to right, var(--primary1), var(--primary2));
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.5rem;
       border: none;
       border-radius: 999px;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      display: inline-block;
+      text-align: center;
     }
 
     /* FAQ Section */
@@ -127,6 +125,7 @@
     .faq-question {
       font-weight: bold;
       cursor: pointer;
+      margin-bottom: 0.25rem;
     }
     .faq-answer {
       margin-top: 0.5rem;
@@ -138,9 +137,12 @@
     .demo-section {
       background: white;
       padding: 3rem 2rem;
-      text-align: center;
       border-radius: 8px;
       margin: 4rem 0;
+      text-align: center; /* Center entire section */
+    }
+    .demo-section .cta-btn {
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -152,22 +154,19 @@
       <h1>PRICING DETAILS</h1>
       <p>Flexible plans for every business. Buy risk free with our 30 day money back guarantee! Yearly and two year subscriptions are paid in lump sums.</p>
     </div>
+
     <div class="pricing-columns">
-      <!-- Two Year Plan -->
+      <!-- Column 1: Two Year Plan -->
       <div class="pricing-col">
-        <div class="plan-header">
-          <div class="left-group">
-            <div class="pricing-tag">BEST VALUE</div>
-            <div class="plan-type">
-              <h3>Two Year Plan</h3>
-              <span class="pricing-disc">SAVE 40%</span>
-            </div>
-          </div>
-          <div class="pricing-price">$149<span style="font-size: 1rem;">/mo</span></div>
-          <div class="plan-cta">
-            <a href="calendly.html" class="cta-btn">Get Started</a>
-          </div>
-        </div>
+        <!-- Row 1: Label -->
+        <div class="plan-label">BEST VALUE</div>
+        <!-- Row 2: Plan name -->
+        <h3>Two Year Plan</h3>
+        <!-- Row 3: Price -->
+        <div class="plan-price">$149<span style="font-size: 1rem;">/mo</span></div>
+        <!-- Row 4: Discount -->
+        <div class="plan-discount">SAVE 40%</div>
+        <!-- Row 5: Features -->
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -179,22 +178,21 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
+        <!-- Row 6: Button -->
+        <a href="calendly.html" class="cta-btn">Get Started</a>
       </div>
-      <!-- One Year Plan -->
-      <div class="pricing-col" style="border: 2px solid var(--primary1);">
-        <div class="plan-header">
-          <div class="left-group">
-            <div class="pricing-tag">MOST POPULAR</div>
-            <div class="plan-type">
-              <h3>One Year Plan</h3>
-              <span class="pricing-disc">SAVE 20%</span>
-            </div>
-          </div>
-          <div class="pricing-price">$199<span style="font-size: 1rem;">/mo</span></div>
-          <div class="plan-cta">
-            <a href="calendly.html" class="cta-btn">Get Started</a>
-          </div>
-        </div>
+
+      <!-- Column 2: One Year Plan -->
+      <div class="pricing-col middle-plan">
+        <!-- Row 1: Label -->
+        <div class="plan-label">MOST POPULAR</div>
+        <!-- Row 2: Plan name -->
+        <h3>One Year Plan</h3>
+        <!-- Row 3: Price -->
+        <div class="plan-price">$199<span style="font-size: 1rem;">/mo</span></div>
+        <!-- Row 4: Discount -->
+        <div class="plan-discount">SAVE 20%</div>
+        <!-- Row 5: Features -->
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -206,21 +204,21 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
+        <!-- Row 6: Button -->
+        <a href="calendly.html" class="cta-btn">Get Started</a>
       </div>
-      <!-- Monthly Plan -->
+
+      <!-- Column 3: Monthly Plan -->
       <div class="pricing-col">
-        <div class="plan-header">
-          <div class="left-group">
-            <!-- No tag for monthly plan -->
-            <div class="plan-type">
-              <h3>Monthly Plan</h3>
-            </div>
-          </div>
-          <div class="pricing-price">$249<span style="font-size: 1rem;">/mo</span></div>
-          <div class="plan-cta">
-            <a href="calendly.html" class="cta-btn">Get Started</a>
-          </div>
-        </div>
+        <!-- Row 1: Label placeholder -->
+        <div class="plan-label" style="visibility: hidden;">&nbsp;</div>
+        <!-- Row 2: Plan name -->
+        <h3>Monthly Plan</h3>
+        <!-- Row 3: Price -->
+        <div class="plan-price">$249<span style="font-size: 1rem;">/mo</span></div>
+        <!-- Row 4: Discount placeholder -->
+        <div class="plan-discount" style="visibility: hidden;">&nbsp;</div>
+        <!-- Row 5: Features -->
         <ul class="pricing-list">
           <li>Unlimited Review Generation</li>
           <li>Reviews Streamed To Website</li>
@@ -232,6 +230,8 @@
           <li>Dashboard Insights</li>
           <li>Unlimited Support</li>
         </ul>
+        <!-- Row 6: Button -->
+        <a href="calendly.html" class="cta-btn">Get Started</a>
       </div>
     </div>
   </section>
@@ -256,7 +256,7 @@
     <div class="faq-item">
       <div class="faq-question">Do you require a setup fee?</div>
       <div class="faq-answer">
-        <p>We do have a setup fee of $299.</p>
+        <p>No we don't.</p>
       </div>
     </div>
   </section>
