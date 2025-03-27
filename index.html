@@ -37,6 +37,9 @@
       padding: 5rem 2rem 4rem;
       position: relative;
     }
+    * {
+  box-sizing: border-box;
+}
     .hero h1 {
       font-size: 61px;
       font-weight: 500;
@@ -80,6 +83,7 @@
       font-weight: bold;
       font-size: 16px;
     }
+
     .section {
       padding: 4rem 2rem;
       text-align: center;
@@ -89,6 +93,7 @@
       font-weight: 600;
       margin-bottom: 2rem;
     }
+
     .value-props {
       display: flex;
       flex-direction: column;
@@ -111,6 +116,7 @@
         justify-content: space-between;
       }
     }
+
     .how-steps {
       display: flex;
       flex-direction: column;
@@ -155,6 +161,7 @@
         justify-content: center;
       }
     }
+
     .testimonial {
       font-style: italic;
       color: var(--secondary3);
@@ -171,9 +178,9 @@
     .screenshot, .visual {
       margin-top: 1.5rem;
       max-width: 100%;
-      border-radius: 0;
-      box-shadow: none;
-      background: none;
+      border-radius: 0;         /* Remove rounding */
+      box-shadow: none;         /* Remove shadow */
+      background: none;         /* Just in case */
     }
     .blob {
       position: absolute;
@@ -191,9 +198,16 @@
       top: 50px;
       right: -120px;
     }
+
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Sora', sans-serif;
     }
+
+    /*
+      TOP-RIGHT CTA BUTTON:
+      Border = black initially;
+      on hover, border becomes a gradient (hybrid of primary1 & primary2)
+    */
     .header nav a.cta-btn {
       background: none !important;
       border: 2px solid black !important;
@@ -217,6 +231,10 @@
       border-style: solid;
       color: black !important;
     }
+
+    /* 
+      UPCOMING EVENTS SECTION (new simpler design)
+    */
     .events-section {
       padding: 4rem 2rem;
       text-align: center;
@@ -233,7 +251,7 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 340px;
+      width: 340px; /* Adjust as needed for your design */
       padding: 2rem;
       text-decoration: none;
       color: var(--secondary2);
@@ -281,8 +299,13 @@
       display: inline-block;
       height: 3rem;
     }
+
+    /* 
+      NEW: Hamburger menu styles 
+      (Shown only on mobile; hidden on desktop)
+    */
     .hamburger {
-      display: none;
+      display: none; /* hidden on desktop */
       background: none;
       border: none;
       cursor: pointer;
@@ -299,19 +322,10 @@
       gap: 1.5rem;
       align-items: center;
     }
-    /* New header inner container class */
-    .header-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
     /* Mobile Optimizations */
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Reduced headline size for mobile */
       }
       .hero p {
         font-size: 1rem;
@@ -319,27 +333,32 @@
       .hero {
         padding: 3rem 1rem;
       }
+      /* Force container to take full width on mobile */
       .container {
         max-width: 100%;
         margin: 0;
         padding: 1rem;
       }
+      /* Header: show hamburger, hide nav by default */
       .hamburger {
         display: inline-block;
       }
       .nav-links {
-        display: none;
+        display: none; /* hidden on mobile by default */
         flex-direction: column;
         gap: 1rem;
         margin-top: 1rem;
       }
+      /* Toggle nav on .active */
       .nav-links.active {
         display: flex;
       }
-      .header-inner {
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 1rem !important;
+      /* The header's inner wrapper also full width on mobile */
+      .header > div {
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+        display: flex;
         flex-direction: column;
         gap: 0.5rem;
       }
@@ -355,14 +374,22 @@
   </style>
 </head>
 <body>
+  <!-- 
+       HEADER with Hamburger Menu 
+       (replaces the old inline nav).
+  -->
   <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 10;">
-    <div class="header-inner">
+    <div style="width: 100%; max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
       <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
+
+      <!-- Hamburger Button -->
       <button class="hamburger" id="hamburger-btn">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
+      <!-- Nav Links (hidden by default on mobile) -->
       <nav class="nav-links" id="nav-links">
         <a href="pricing.html">Pricing</a>
         <a href="calendly.html" class="cta-btn">Schedule a demo</a>
@@ -373,14 +400,17 @@
   <div class="container">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+
     <section class="hero">
       <h1>Become the most trusted Dentist in your area.</h1>
       <p>Automate your Google reviews.</p>
+      <!-- Main CTA (unchanged) -->
       <a href="calendly.html" class="cta-btn">
         Schedule a demo <span class="circle">→</span>
       </a>      
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.webp" alt="Hero image" class="screenshot">
     </section>
+
     <section class="section">
       <h2>Become the highest reviewed local dentist on Google</h2>
       <div class="value-props">
@@ -401,6 +431,7 @@
         </div>
       </div>
     </section>
+
     <section class="section">
       <h2>Just 5 minutes to get started</h2>
       <div class="how-steps">
@@ -430,14 +461,19 @@
         </div>
       </div>
     </section>
+
     <section class="section">
       <h2>What Others Are Saying</h2>
       <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
       <p class="testimonial">"We started using Jarvis a few months ago, and honestly, the difference has been huge. We're seeing more new patients—and the right kind of patients."<br><strong>– Dr. Tang</strong></p>
+      <!-- (Removed the bottom CTA from here so we can move it below the events) -->
     </section>
+
+    <!-- NEW: UPCOMING EVENTS SECTION -->
     <section class="section events-section">
       <h2>Upcoming events</h2>
       <div class="event-cards-container">
+        <!-- Event 1 -->
         <a href="calendly.com" target="_blank" class="event-card">
           <span class="event-type">webinar</span>
           <div class="event-title">How To Win Customers</div>
@@ -446,6 +482,8 @@
           </div>
           <div class="event-arrow">→</div>
         </a>
+
+        <!-- Event 2 -->
         <a href="calendly.com" target="_blank" class="event-card">
           <span class="event-type">webinar</span>
           <div class="event-title">Beat Your Competitor</div>
@@ -456,15 +494,23 @@
         </a>
       </div>
     </section>
+
+    <!-- BOTTOM CTA MOVED HERE (unchanged) -->
     <div style="text-align: center; margin-bottom: 4rem;">
       <a href="calendly.html" class="cta-btn">
         Schedule a demo <span class="circle">→</span>
       </a>      
     </div>
   </div>
+
+  <!-- 
+       Simple JavaScript to toggle the mobile nav 
+       (Hamburger Menu)
+  -->
   <script>
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('nav-links');
+
     hamburgerBtn.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
