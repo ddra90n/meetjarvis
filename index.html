@@ -18,6 +18,10 @@
       --secondary2: #1a1a1a; /* Main text */
       --secondary3: #666666; /* Muted text */
     }
+    html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -26,6 +30,9 @@
       color: var(--secondary2);
       background-color: var(--secondary1);
     }
+    .page-wrapper {
+  overflow-x: hidden;
+}
     .container {
       max-width: 960px;
       margin: 0 auto;
@@ -183,21 +190,28 @@
       background: none;         /* Just in case */
     }
     .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .blob-1 {
-      top: -80px;
-      left: -100px;
-    }
-    .blob-2 {
-      top: 50px;
-      right: -120px;
-    }
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+.blob-1 {
+  top: -80px;
+  left: -100px;
+}
+.blob-2 {
+  top: 50px;
+  right: -120px;
+}
+
+@media (max-width: 768px) {
+  .blob-1,
+  .blob-2 {
+    display: none;
+  }
+}
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Sora', sans-serif;
@@ -374,6 +388,7 @@
   </style>
 </head>
 <body>
+  <div class="page-wrapper">
   <!-- 
        HEADER with Hamburger Menu 
        (replaces the old inline nav).
@@ -515,5 +530,6 @@
       navLinks.classList.toggle('active');
     });
   </script>
+  </div> <!-- end of .page-wrapper -->
 </body>
 </html>
