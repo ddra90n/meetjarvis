@@ -107,13 +107,18 @@
       gap: 1.5rem;
     }
     .value-props div {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      flex: 1;
-      text-align: center;
-    }
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  flex: 1;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
     .value-props div:hover {
       transform: translateY(-4px);
     }
