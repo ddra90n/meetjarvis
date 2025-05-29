@@ -1,541 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <!-- Important for mobile responsiveness -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"><!-- Important for mobile responsiveness -->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Jarvis: Google Reviews for Your Dental Office</title>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" />
+  <link href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" rel="icon" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+  </script>
   <style>
-    :root {
-      /* Two primary colors */
-      --primary1: #1E90FF;   /* Blue */
-      --primary2: #FFD700;   /* Yellow */
-      /* Three secondary colors */
-      --secondary1: #f5f5ec; /* Background */
-      --secondary2: #1a1a1a; /* Main text */
-      --secondary3: #666666; /* Muted text */
-    }
-    html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: var(--secondary2);
-      background-color: var(--secondary1);
-    }
-    .page-wrapper {
-  overflow-x: hidden;
-}
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-      position: relative;
-    }
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-    }
-    * {
-  box-sizing: border-box;
-}
-    .hero h1 {
-      font-size: 61px;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      line-height: 1.15;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--secondary3);
-      margin-bottom: 1.5rem;
-    }
-    .cta-btn {
-      background: linear-gradient(to right, var(--primary1), var(--primary2));
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(30,144,255,0.3);
-      transition: all 0.2s ease-in-out;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(30,144,255,0.35);
-    }
-    .cta-btn .circle {
-      background-color: white;
-      color: var(--primary1);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .value-props {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .value-props div {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      flex: 1;
-      text-align: center;
-    }
-    .value-props div:hover {
-      transform: translateY(-4px);
-    }
-    @media (min-width: 768px) {
-      .value-props {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-
-    .how-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-    .how-step {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      max-width: 260px;
-      text-align: center;
-      position: relative;
-    }
-    .how-step-icon {
-      width: 64px;
-      height: 64px;
-      background: #eef2ff;
-      border-radius: 12px;
-      margin: 0 auto 1rem;
-      position: relative;
-    }
-    .how-step-number {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: var(--primary1);
-      color: white;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-    @media (min-width: 768px) {
-      .how-steps {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    .testimonial {
-      font-style: italic;
-      color: var(--secondary3);
-      margin-top: 1rem;
-    }
-    .testimonial-profile {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1rem auto;
-      display: block;
-    }
-    .screenshot, .visual {
-      margin-top: 1.5rem;
-      max-width: 100%;
-      border-radius: 0;         /* Remove rounding */
-      box-shadow: none;         /* Remove shadow */
-      background: none;         /* Just in case */
-    }
-    .blob {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-}
-.blob-1 {
-  top: -80px;
-  left: -100px;
-}
-.blob-2 {
-  top: 50px;
-  right: -120px;
-}
-
-@media (max-width: 768px) {
-  .blob-1,
-  .blob-2 {
-    display: none;
+     :root {
+       /* Two primary colors */
+       --primary1: #1E90FF;   /* Blue */
+       --primary2: #FFD700;   /* Yellow */
+       /* Three secondary colors */
+       --secondary1: #f5f5ec; /* Background */
+       --secondary2: #1a1a1a; /* Main text */
+       --secondary3: #666666; /* Muted text */
+     }
+     html, body {
+   max-width: 100%;
+   overflow-x: hidden;
   }
-}
+     body {
+       font-family: 'Inter', sans-serif;
+       margin: 0;
+       padding: 0;
+       line-height: 1.6;
+       color: var(--secondary2);
+       background-color: var(--secondary1);
+     }
+     .page-wrapper {
+   overflow-x: hidden;
+  }
+     .container {
+       max-width: 960px;
+       margin: 0 auto;
+       padding: 2rem;
+       position: relative;
+       margin-top: 80px;
+     }
+     .hero {
+       text-align: center;
+       padding: 5rem 2rem 4rem;
+       position: relative;
+     }
+     * {
+   box-sizing: border-box;
+  }
+     .hero h1 {
+       font-size: 61px;
+       font-weight: 500;
+       margin-bottom: 0.75rem;
+       line-height: 1.15;
+     }
+     .hero p {
+       font-size: 1.25rem;
+       color: var(--secondary3);
+       margin-bottom: 1.5rem;
+     }
+     .hero-subtitle {
+   max-width: 600px;       /* or 700px, adjust for your taste */
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 1.5rem;
+   font-size: 1.25rem;     /* ensure it matches your design */
+   color: var(--secondary3);
+   line-height: 1.5;
+   text-align: center;
+  }
+     .cta-btn {
+       background: linear-gradient(to right, var(--primary1), var(--primary2));
+       color: white;
+       padding: 0.75rem 1.5rem;
+       border: none;
+       border-radius: 999px;
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       text-decoration: none;
+       display: inline-flex;
+       align-items: center;
+       gap: 0.5rem;
+       box-shadow: 0 4px 12px rgba(30,144,255,0.3);
+       transition: all 0.2s ease-in-out;
+     }
+     .cta-btn:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 6px 16px rgba(30,144,255,0.35);
+     }
+     .cta-btn .circle {
+       background-color: white;
+       color: var(--primary1);
+       border-radius: 50%;
+       width: 24px;
+       height: 24px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-weight: bold;
+       font-size: 16px;
+     }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-    }
+     .section {
+       padding: 4rem 2rem;
+       text-align: center;
+     }
+     .section h2 {
+       font-size: 2rem;
+       font-weight: 600;
+       margin-bottom: 2rem;
+     }
 
-    /*
-      TOP-RIGHT CTA BUTTON:
-      Border = black initially;
-      on hover, border becomes a gradient (hybrid of primary1 & primary2)
-    */
-    .header nav a.cta-btn {
-      background: none !important;
-      border: 2px solid black !important;
-      color: black !important;
-      box-shadow: none !important;
-      transition: border 0.3s ease;
-    }
-    nav a {
-      color: black;
-      text-decoration: none;
-    }
-    nav a:visited {
-      color: black;
-    }
-    nav a:hover {
-      color: black;
-      text-decoration: none;
-    }
-    .header nav a.cta-btn:hover {
-      border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
-      border-style: solid;
-      color: black !important;
-    }
+     .value-props {
+       display: flex;
+       flex-direction: column;
+       gap: 1.5rem;
+     }
+     .value-props div {
+       background: white;
+       padding: 1.5rem;
+       border-radius: 12px;
+       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+       flex: 1;
+       text-align: center;
+     }
+     .value-props div:hover {
+       transform: translateY(-4px);
+     }
+     @media (min-width: 768px) {
+       .value-props {
+         flex-direction: row;
+         justify-content: space-between;
+       }
+     }
 
-    /* 
-      UPCOMING EVENTS SECTION (new simpler design)
-    */
-    .events-section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .event-cards-container {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .event-card {
-      position: relative;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 340px; /* Adjust as needed for your design */
-      padding: 2rem;
-      text-decoration: none;
-      color: var(--secondary2);
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
-    }
-    .event-card:hover {
-      transform: translateY(-2px);
-    }
-    .event-type {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--primary1);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .event-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0.5rem 0 1rem;
-      color: var(--secondary2);
-    }
-    .event-details {
-      font-size: 0.9rem;
-      color: var(--secondary3);
-      margin-bottom: 1.5rem;
-      line-height: 1.4;
-    }
-    .event-arrow {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: var(--secondary2);
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-    }
-    .value-props h3.value-prop-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      border: none;
-      padding: 0;
-      background: none;
-      display: inline-block;
-      height: 3rem;
-    }
+     .how-steps {
+       display: flex;
+       flex-direction: column;
+       gap: 2rem;
+       align-items: center;
+     }
+     .how-step {
+       background: white;
+       padding: 1.5rem;
+       border-radius: 12px;
+       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+       max-width: 260px;
+       text-align: center;
+       position: relative;
+     }
+     .how-step-icon {
+       width: 64px;
+       height: 64px;
+       background: #eef2ff;
+       border-radius: 12px;
+       margin: 0 auto 1rem;
+       position: relative;
+     }
+     .how-step-number {
+       position: absolute;
+       top: -10px;
+       right: -10px;
+       background-color: var(--primary1);
+       color: white;
+       width: 24px;
+       height: 24px;
+       font-size: 14px;
+       border-radius: 999px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-weight: bold;
+     }
+     @media (min-width: 768px) {
+       .how-steps {
+         flex-direction: row;
+         justify-content: center;
+       }
+     }
 
-    /* 
-      NEW: Hamburger menu styles 
-      (Shown only on mobile; hidden on desktop)
-    */
-    .hamburger {
-      display: none; /* hidden on desktop */
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .hamburger span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin-bottom: 5px;
-      background: black;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    /* Mobile Optimizations */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem; /* Reduced headline size for mobile */
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .hero {
-        padding: 3rem 1rem;
-      }
-      /* Force container to take full width on mobile */
-      .container {
-        max-width: 100%;
-        margin: 0;
-        padding: 1rem;
-      }
-      /* Header: show hamburger, hide nav by default */
-      .hamburger {
-        display: inline-block;
-      }
-      .nav-links {
-        display: none; /* hidden on mobile by default */
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-      /* Toggle nav on .active */
-      .nav-links.active {
-        display: flex;
-      }
-      /* The header's inner wrapper also full width on mobile */
-      .header > div {
-        max-width: 100%;
-        margin: 0;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .value-props, .how-steps {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .event-cards-container {
-        flex-direction: column;
-        gap: 1rem;
-        .event-cards-container {
-  align-items: center;
-}
-.event-card {
-  width: 100%;
-}
-      }
-    }
+     .testimonial {
+       font-style: italic;
+       color: var(--secondary3);
+       margin-top: 1rem;
+     }
+     .testimonial-profile {
+       width: 96px;
+       height: 96px;
+       border-radius: 50%;
+       object-fit: cover;
+       margin: 1rem auto;
+       display: block;
+     }
+     .screenshot, .visual {
+       margin-top: 1.5rem;
+       max-width: 100%;
+       border-radius: 0;         /* Remove rounding */
+       box-shadow: none;         /* Remove shadow */
+       background: none;         /* Just in case */
+     }
+     .blob {
+   position: absolute;
+   width: 300px;
+   height: 300px;
+   background: radial-gradient(circle at 30% 30%, var(--primary1)22, transparent 70%);
+   border-radius: 50%;
+   z-index: -1;
+  }
+  .blob-1 {
+   top: -80px;
+   left: -100px;
+  }
+  .blob-2 {
+   top: 50px;
+   right: -120px;
+  }
+
+  @media (max-width: 768px) {
+   .blob-1,
+   .blob-2 {
+     display: none;
+   }
+  }
+
+     h1, h2, h3, h4, h5, h6 {
+       font-family: 'Sora', sans-serif;
+     }
+
+     /*
+       TOP-RIGHT CTA BUTTON:
+       Border = black initially;
+       on hover, border becomes a gradient (hybrid of primary1 & primary2)
+     */
+     .header nav a.cta-btn {
+       background: none !important;
+       border: 2px solid black !important;
+       color: black !important;
+       box-shadow: none !important;
+       transition: border 0.3s ease;
+     }
+     nav a {
+       color: black;
+       text-decoration: none;
+     }
+     nav a:visited {
+       color: black;
+     }
+     nav a:hover {
+       color: black;
+       text-decoration: none;
+     }
+     .header nav a.cta-btn:hover {
+       border-image: linear-gradient(to right, var(--primary1), var(--primary2)) 1;
+       border-style: solid;
+       color: black !important;
+     }
+
+     /* 
+       UPCOMING EVENTS SECTION (new simpler design)
+     */
+     .events-section {
+       padding: 4rem 2rem;
+       text-align: center;
+     }
+     .event-cards-container {
+       display: flex;
+       gap: 2rem;
+       justify-content: center;
+       flex-wrap: wrap;
+       margin-top: 2rem;
+     }
+     .event-card {
+       position: relative;
+       background: #fff;
+       border-radius: 12px;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+       width: 340px; /* Adjust as needed for your design */
+       padding: 2rem;
+       text-decoration: none;
+       color: var(--secondary2);
+       text-align: center;
+       transition: transform 0.2s ease-in-out;
+     }
+     .event-card:hover {
+       transform: translateY(-2px);
+     }
+     .event-type {
+       display: block;
+       font-size: 0.75rem;
+       text-transform: uppercase;
+       color: var(--primary1);
+       font-weight: 600;
+       margin-bottom: 0.75rem;
+     }
+     .event-title {
+       font-size: 1.25rem;
+       font-weight: 600;
+       margin: 0.5rem 0 1rem;
+       color: var(--secondary2);
+     }
+     .event-details {
+       font-size: 0.9rem;
+       color: var(--secondary3);
+       margin-bottom: 1.5rem;
+       line-height: 1.4;
+     }
+     .event-arrow {
+       font-size: 1.25rem;
+       font-weight: bold;
+       color: var(--secondary2);
+       position: absolute;
+       right: 1rem;
+       bottom: 1rem;
+     }
+     .value-props h3.value-prop-title {
+       font-size: 1.25rem;
+       font-weight: 600;
+       margin-bottom: 0.75rem;
+       border: none;
+       padding: 0;
+       background: none;
+       display: inline-block;
+       height: 3rem;
+     }
+
+   .gradient-border-wrapper {
+   display: inline-block;
+   padding: 2px; /* Border thickness */
+   border-radius: 999px;
+   background: linear-gradient(to right, var(--primary1), var(--primary2));
+   transition: background 0.2s;
+  }
+
+   .cta-btn.gradient-border {
+   background: #f5f5ec; /* or transparent */
+   color: black;
+   border: none;
+   border-radius: 999px;
+   font-weight: 600;
+   padding: 0.75rem 1.5rem;
+   font-size: 1rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   box-shadow: none;
+   transition: background 0.25s, color 0.25s;
+   min-width: 150px;
+   text-align: center;
+   text-decoration: none;
+   gap: 0.5rem;
+  }
+
+
+  .gradient-border-wrapper:hover .cta-btn.gradient-border,
+  .cta-btn.gradient-border:focus {
+   background: linear-gradient(to right, var(--primary1), var(--primary2));
+   color: white;
+  }
+
+     /* 
+       NEW: Hamburger menu styles 
+       (Shown only on mobile; hidden on desktop)
+     */
+     .hamburger {
+       display: none; /* hidden on desktop */
+       background: none;
+       border: none;
+       cursor: pointer;
+     }
+     .hamburger span {
+       display: block;
+       width: 25px;
+       height: 3px;
+       margin-bottom: 5px;
+       background: black;
+     }
+     .nav-links {
+       display: flex;
+       gap: 1.5rem;
+       align-items: center;
+     }
+
+           .header {
+   width: 100vw;
+   background: white;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+  }
+     /* Mobile Optimizations */
+     @media (max-width: 768px) {
+       .hero h1 {
+         font-size: 2.5rem; /* Reduced headline size for mobile */
+       }
+       .hero p {
+         font-size: 1rem;
+       }
+       .hero {
+         padding: 3rem 1rem;
+       }
+       /* Force container to take full width on mobile */
+       .container {
+         max-width: 100%;
+         margin: 0;
+         padding: 1rem;
+       }
+       .hero-subtitle {
+     max-width: 90vw;   /* Makes sure subtitle never overflows screen */
+     font-size: 1rem;   /* Smaller subtitle on mobile */
+     padding: 0 2vw;    /* Optional: extra breathing room on edges */
+   }
+       /* Header: show hamburger, hide nav by default */
+       .hamburger {
+         display: inline-block;
+       }
+       .nav-links {
+         display: none; /* hidden on mobile by default */
+         flex-direction: column;
+         gap: 1rem;
+         margin-top: 1rem;
+       }
+       /* Toggle nav on .active */
+       .nav-links.active {
+         display: flex;
+       }
+
+       /* The header's inner wrapper also full width on mobile */
+       .header > div {
+         max-width: 100%;
+         margin: 0;
+         padding: 1rem;
+         display: flex;
+         flex-direction: column;
+         gap: 0.5rem;
+       }
+       .value-props, .how-steps {
+         flex-direction: column;
+         gap: 1rem;
+       }
+       .event-cards-container {
+         flex-direction: column;
+         gap: 1rem;
+         .event-cards-container {
+   align-items: center;
+  }
+  .event-card {
+   width: 100%;
+  }
+       }
+     }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
-  <!-- 
+    <!-- 
        HEADER with Hamburger Menu 
        (replaces the old inline nav).
   -->
-  <header class="header" style="width: 100%; background: white; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 10;">
-    <div style="width: 100%; max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-      <a href="#"><img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" alt="Logo" style="height: 34px;"></a>
-
-      <!-- Hamburger Button -->
-      <button class="hamburger" id="hamburger-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Nav Links (hidden by default on mobile) -->
-      <nav class="nav-links" id="nav-links">
-        <a href="https://app.meetjarvis.co/client-login">Login</a>
-        <a href="https://meetjarvis.co/demo" class="cta-btn">Book a demo now</a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
-    <section class="hero">
-      <h1>Get Ranked Higher on Google</h1>
-      <p>Helping Health, Beauty, and Wellness Businesses Rank at the Top of Google</p>
-      <!-- Main CTA (unchanged) -->
-      <a href="https://meetjarvis.co/demo" class="cta-btn">
-        Book a demo now <span class="circle">→</span>
-      </a>      
-      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.gif" alt="Hero image" class="screenshot">
-    </section>
-
-    <section class="section">
-      <h2>3 Reasons You Need to Rank Higher on Google — Right Now</h2>
-      <div class="value-props">
-        <div>
-          <h3 class="value-prop-title">You're Invisible If You're Not in the Top 3</h3>
-          <p>90% of people search on Google, but 70% of them only click the top 3 results. If you’re not there, you’re missing nearly every opportunity.</p>
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties1.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
-        </div>        
-        <div>
-          <h3 class="value-prop-title">Your Competitors Are Catching Up Fast</h3>
-          <p>More local businesses are investing in their Google presence every day. Waiting only makes it harder to stand out later.</p>
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties2.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
-        </div>
-        <div>
-          <h3 class="value-prop-title">Ads Are Losing Trust — Google Rankings Aren’t</h3>
-          <p>Clients trust Google Maps more than paid ads. Top-ranked businesses get a steady stream of new and repeat customers — without paying per click.</p>
-          <lottie-player src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/lotties3.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin: 1rem auto;" loop autoplay></lottie-player>
-        </div>
+    <header class="header">
+      <div style="width: 100%; max-width: 1140px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="#"><img alt="Logo" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/logo.webp" style="height: 34px;"></a> <!-- Hamburger Button -->
+         <button class="hamburger" id="hamburger-btn"><span></span> <span></span> <span></span></button> <!-- Nav Links (hidden by default on mobile) -->
+        <nav class="nav-links" id="nav-links">
+          <a href="https://app.meetjarvis.co/client-login">Login</a> <a class="cta-btn" href="https://meetjarvis.co/demo">Book a demo now</a>
+        </nav>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Just 5 minutes to get started</h2>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-icon">
-            <div class="how-step-number">1</div>
-            <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon1.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+    </header>
+    <div class="container">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <section class="hero">
+        <h1>Get Ranked Higher on Google</h1>
+        <p class="hero-subtitle">Helping Health, Beauty, and Wellness Businesses Rank at the Top of Google</p><!-- Two horizontally aligned CTAs above the hero image -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+          <a class="cta-btn" href="https://meetjarvis.co/demo">Book a demo now <span class="circle">→</span></a> <span class="gradient-border-wrapper"><a class="cta-btn gradient-border" href="{{ctaLink2}}">{{ctaText2}}</a></span>
+        </div><img alt="Hero image" class="screenshot" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/hero.gif">
+      </section>
+      <section class="section">
+        <h2>3 Reasons You Need to Rank Higher on Google — Right Now</h2>
+        <div class="value-props">
+          <div>
+            <h3 class="value-prop-title">You're Invisible If You're Not in the Top 3</h3>
+            <p>90% of people search on Google, but 70% of them only click the top 3 results. If you’re not there, you’re missing nearly every opportunity.</p>
           </div>
-          <h4>Connect Google profile</h4>
-          <p>One-click setup. You give us access, and we take it from there — no tech skills needed.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-icon">
-            <div class="how-step-number">2</div>
-            <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon2.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          <div>
+            <h3 class="value-prop-title">Your Competitors Are Catching Up Fast</h3>
+            <p>More local businesses are investing in their Google presence every day. Waiting only makes it harder to stand out later.</p>
           </div>
-          <h4>We Get to Work</h4>
-          <p>We optimize your profile, boost your SEO, and handle everything for you — fully done-for-you.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-icon">
-            <div class="how-step-number">3</div>
-            <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon3.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          <div>
+            <h3 class="value-prop-title">Ads Are Losing Trust — Google Rankings Aren’t</h3>
+            <p>Clients trust Google Maps more than paid ads. Top-ranked businesses get a steady stream of new and repeat customers — without paying per click.</p>
           </div>
-          <h4>You See the Results</h4>
-          <p>Most clients see a 150% jump in clicks within 3 months — more bookings, no extra work.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>What Others Are Saying</h2>
-      <img src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp" alt="Profile photo" class="testimonial-profile">
-      <p class="testimonial">"We started using Jarvis a few months ago, and honestly, the difference has been huge. We're seeing more new patients—and the right kind of patients."<br><strong>– Dr. Tang</strong></p>
-      <!-- (Removed the bottom CTA from here so we can move it below the events) -->
-    </section>
-
-    <!-- NEW: UPCOMING EVENTS SECTION -->
-    <section class="section events-section">
-      <h2>Upcoming events</h2>
-      <div class="event-cards-container">
-        <!-- Event 1 -->
-        <a href="https://calendly.com/share-nick/my-calendar" target="_blank" class="event-card">
-          <span class="event-type">webinar</span>
-          <div class="event-title">The Impact of 5-Star Google Reviews on Small Businesses</div>
+      </section>
+      <section class="section">
+        <h2>Just 5 minutes to get started</h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-icon">
+            <div class="how-step-number">
+              1
+            </div><img alt="" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon1.png" style="width: 100%; height: 100%; object-fit: contain;"></div>
+            <h4>Connect Google profile</h4>
+            <p>One-click setup. You give us access, and we take it from there — no tech skills needed.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon">
+            <div class="how-step-number">
+              2
+            </div><img alt="" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon2.png" style="width: 100%; height: 100%; object-fit: contain;"></div>
+            <h4>We Get to Work</h4>
+            <p>We optimize your profile, boost your SEO, and handle everything for you — fully done-for-you.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon">
+            <div class="how-step-number">
+              3
+            </div><img alt="" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/icon3.png" style="width: 100%; height: 100%; object-fit: contain;"></div>
+            <h4>You See the Results</h4>
+            <p>Most clients see a 150% jump in clicks within 3 months — more bookings, no extra work.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>What Others Are Saying</h2><img alt="Profile photo" class="testimonial-profile" src="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/testimonialimage.webp">
+        <p class="testimonial">"We started using Jarvis a few months ago, and honestly, the difference has been huge. We're seeing more new patients—and the right kind of patients."<br>
+        <strong>– Dr. Tang</strong></p><!-- (Removed the bottom CTA from here so we can move it below the events) -->
+      </section><!-- NEW: UPCOMING EVENTS SECTION -->
+      <section class="section events-section">
+        <h2>Upcoming events</h2>
+        <div class="event-cards-container">
+          <!-- Event 1 -->
+           <a class="event-card" href="https://calendly.com/share-nick/my-calendar" target="_blank"><span class="event-type">webinar</span>
+          <div class="event-title">
+            The Impact of 5-Star Google Reviews on Small Businesses
+          </div>
           <div class="event-details">
-            April 15, 2025 | 5pm EST<br>Zoom
+            April 15, 2025 | 5pm EST<br>
+            Zoom
           </div>
-          <div class="event-arrow">→</div>
-        </a>
-
-        <!-- Event 2 -->
-        <a href="https://calendly.com/share-nick/my-calendar" target="_blank" class="event-card">
-          <span class="event-type">webinar</span>
-          <div class="event-title">The Surprising Impact of Google Reviews on Employee Retention</div>
+          <div class="event-arrow">
+            →
+          </div></a> <!-- Event 2 -->
+           <a class="event-card" href="https://calendly.com/share-nick/my-calendar" target="_blank"><span class="event-type">webinar</span>
+          <div class="event-title">
+            The Surprising Impact of Google Reviews on Employee Retention
+          </div>
           <div class="event-details">
-            April 28, 2025 | 5pm EST<br>Zoom
+            April 28, 2025 | 5pm EST<br>
+            Zoom
           </div>
-          <div class="event-arrow">→</div>
-        </a>
+          <div class="event-arrow">
+            →
+          </div></a>
+        </div>
+      </section><!-- BOTTOM CTA MOVED HERE (unchanged) -->
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <a class="cta-btn" href="https://meetjarvis.co/demo">Book a demo now <span class="circle">→</span></a>
       </div>
-    </section>
-
-    <!-- BOTTOM CTA MOVED HERE (unchanged) -->
-    <div style="text-align: center; margin-bottom: 4rem;">
-      <a href="https://meetjarvis.co/demo" class="cta-btn">
-        Book a demo now <span class="circle">→</span>
-      </a>      
-    </div>
-  </div>
-
-  <!-- 
+    </div><!-- 
        Simple JavaScript to toggle the mobile nav 
        (Hamburger Menu)
   -->
-  <script>
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navLinks = document.getElementById('nav-links');
+    <script>
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const navLinks = document.getElementById('nav-links');
 
-    hamburgerBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
-  </div> <!-- end of .page-wrapper -->
+      hamburgerBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    </script>
+  </div><!-- end of .page-wrapper -->
 </body>
 </html>
