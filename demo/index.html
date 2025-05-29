@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jarvis: Schedule a Demo</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    :root {
+      --primary1: #1E90FF;
+      --primary2: #FFD700;
+      --secondary1: #f5f5ec;
+      --secondary2: #1a1a1a;
+      --secondary3: #666666;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--secondary2);
+      background-color: var(--secondary1);
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Description -->
+    <h1>Book a demo</h1>
+    <p>Hi, thanks for picking a time. I look forward to speaking with you. Talk soon!</p>
+  
+    <!-- Calendly widget -->
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/nick-meetjarvis/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+         style="min-width:320px;height:700px;border:none;border-radius:12px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</body>
+</html>
