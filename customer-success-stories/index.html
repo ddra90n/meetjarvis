@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Case Studies | Jarvis</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ddra90n/meetjarvis/main/assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css" />
+  <link href="https://unpkg.com/beerslider/dist/BeerSlider.css" rel="stylesheet" type="text/css" />
   <style>
     :root {
       --primary1: #1E90FF;
@@ -19,9 +19,11 @@
       max-width: 100%;
       overflow-x: hidden;
       box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
     }
     * {
       box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -30,6 +32,7 @@
       background-color: var(--secondary1);
       color: var(--secondary2);
       line-height: 1.6;
+      touch-action: manipulation;
     }
     .header {
       width: 100%;
@@ -39,7 +42,6 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      /* Make sure it's always on top and fixed! */
     }
     .header-inner {
       width: 100%;
@@ -71,7 +73,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 2rem;
-      padding-top: 110px; /* <- This is the important line: creates space for header! */
+      padding-top: 110px;
     }
     h1, h2, h3 {
       font-family: 'Sora', sans-serif;
@@ -98,14 +100,24 @@
     .case-study h3 {
       margin-bottom: 1rem;
     }
-    .beer-slider, .beer-slider img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
+    .beer-slider {
+      height: 100% !important;
       border: 2px solid var(--primary1);
+      border-radius: 12px;
+    }
+    .beer-slider,
+    .beer-slider>img {
+      width: 100% !important;
+      height: auto;
+      -webkit-user-drag: none;
+      user-select: none;
     }
     .beer-handle {
       background: var(--primary1) !important;
+      color: #fff !important;
+    }
+    .beer-range::-webkit-slider-thumb {
+      -webkit-appearance: auto;
     }
     .meta-row {
       display: flex;
@@ -121,6 +133,38 @@
       border-radius: 999px;
       font-weight: 500;
       font-size: 0.9rem;
+    }
+    .loaderwrap {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgb(0 0 0 / 80%);
+      z-index: 99999;
+      display: none;
+    }
+    .loader {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      margin: auto;
+      border: 5px solid #eee;
+      border-radius: 50%;
+      border-top: 5px solid var(--primary1);
+      width: 50px;
+      height: 50px;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     @media (max-width: 768px) {
       .case-study {
@@ -146,7 +190,7 @@
   <section class="container">
     <div class="section-title">
       <h1>Real Case Studies</h1>
-      <p>See how health, beauty, and wellness businesses improved their Google visibility</p>
+      <p>See how spa, skincare, and wellness businesses improved their Google visibility</p>
     </div>
 
     <div class="case-study-grid">
@@ -154,11 +198,9 @@
       <!-- CASE 1 -->
       <div class="case-study">
         <h3>Spa</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/6705451d808e7aa961d69a33_01.webp" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67054558db471a00af3c3b74_02.webp" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67054558db471a00af3c3b74_02.webp" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">hot stone massage</span>
@@ -169,11 +211,9 @@
       <!-- CASE 2 -->
       <div class="case-study">
         <h3>Med Spa</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670651dff97515d10cc8ae8c_med-spa-marketing2.webp" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670651cd499d353023889b08_med-spa-marketing1.webp" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670651cd499d353023889b08_med-spa-marketing1.webp" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">dermaplane</span>
@@ -184,11 +224,9 @@
       <!-- CASE 3 -->
       <div class="case-study">
         <h3>Med Spa</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/6706521185972614b3f4b574_med1.webp" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670652187e575c739835388a_med2.webp" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670652187e575c739835388a_med2.webp" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">microdermabrasion</span>
@@ -199,11 +237,9 @@
       <!-- CASE 4 -->
       <div class="case-study">
         <h3>Med Spa</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670678acba25107ee15f4010_med-spa-seo-services-03.webp" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670678b185f16a427e86d887_med-spa-seo-services-003.webp" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/670678b185f16a427e86d887_med-spa-seo-services-003.webp" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">PRP Treatment near me</span>
@@ -214,11 +250,9 @@
       <!-- CASE 5 -->
       <div class="case-study">
         <h3>Med Spa</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67255d8742653903ca2020f8_tattoo%20removal%20before.png" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67255d89ec7afb237c6801e4_tattoo%20removal%20after%205.png" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67255d89ec7afb237c6801e4_tattoo%20removal%20after%205.png" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">tattoo removal</span>
@@ -229,11 +263,9 @@
       <!-- CASE 6 -->
       <div class="case-study">
         <h3>Salon</h3>
-        <div class="beer-slider" data-beer-label="Before">
+        <div class="image-wrappers">
           <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67063f41728278b472f2c864_salon1.webp" alt="Before">
-          <div class="beer-reveal" data-beer-label="After">
-            <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67063f4c8e3db05ff9b3e91d_salon2.webp" alt="After">
-          </div>
+          <img src="https://cdn.prod.website-files.com/66339c43cbff20ea82838f5e/67063f4c8e3db05ff9b3e91d_salon2.webp" alt="After">
         </div>
         <div class="meta-row">
           <span class="keyword-pill">hair extensions</span>
@@ -244,10 +276,70 @@
     </div>
   </section>
 
+  <div class="loaderwrap">
+    <div class="loader"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.beer-slider').forEach(slider => new BeerSlider(slider));
+    function create_beerSlider(elem, firstImage, secondImage) {
+      // Create a template for the beer slider using the first and second image sources
+      const template = `
+      <div class="beer-slider" data-beer-label="">
+          <img class="firstImage" src="${firstImage}">
+          <div class="beer-reveal" data-beer-label="">
+              <img class="secondImage" src="${secondImage}">
+          </div>
+      </div>
+      `;
+      // Remove the first and second images
+      elem.querySelectorAll('img')[1].style.display = "none";
+      elem.querySelectorAll('img')[0].style.display = "none";
+      // Append the template to the current "image-wrapper" element
+      elem.insertAdjacentHTML('afterbegin',template);
+
+      // Select all elements with the class "beer-slider" and loop through them
+      const beerSliders = document.getElementsByClassName("beer-slider");
+      for(const beerSlider of beerSliders) {
+          // Initialize the BeerSlider plugin on the current element
+          new BeerSlider(beerSlider, { 
+            start: 50,
+            touch: true,
+            swipe: true
+          });
+      }
+    }
+
+    function load_beerSlider() {
+      // Select all elements with the class "image-wrappers" and loop through them
+      const imageWrappers = document.getElementsByClassName("image-wrappers");
+      
+      $(".beer-slider").remove();
+
+      $(imageWrappers).each(function(index, elem) {
+          // Get the source of the first and second image within the current "image-wrapper" element
+          const firstImage = elem.querySelectorAll('img')[0].src;
+          const secondImage = elem.querySelectorAll('img')[1].src;
+
+          if($(elem).find('.beer-slider').length == 0) {
+              create_beerSlider(elem, firstImage, secondImage);
+          } else {
+              create_beerSlider(elem, firstImage, secondImage);
+          }
+      });
+    }
+
+    $(document).ready(function() {
+      // Initialize beer sliders on page load
+      load_beerSlider();
+      
+      // Prevent default touch behavior that might interfere with swiping
+      document.addEventListener('touchmove', function(e) {
+        if (e.target.closest('.beer-slider')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
     });
   </script>
 </body>
